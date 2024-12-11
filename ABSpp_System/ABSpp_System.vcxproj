@@ -132,6 +132,7 @@
     <ClCompile Include="BallInputInterfaceAdapter.cpp" />
     <ClCompile Include="BatInputInterface.cpp" />
     <ClCompile Include="BatInputInterfaceAdapter.cpp" />
+    <ClCompile Include="MessageQueue.cpp" />
     <ClCompile Include="turnOnOffCommand.cpp" />
     <ClCompile Include="UserInputInterface.cpp" />
     <ClCompile Include="UserInputInterfaceAdapter.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="IBatInputInterface.h" />
     <ClInclude Include="IMessageQueue.h" />
     <ClInclude Include="IUserInputInterface.h" />
+    <ClInclude Include="MessageQueue.h" />
     <ClInclude Include="turnOnOffCommand.h" />
     <ClInclude Include="UserCommand.h" />
     <ClInclude Include="UserDefineType.h" />

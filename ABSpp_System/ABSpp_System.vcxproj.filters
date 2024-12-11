@@ -57,6 +57,9 @@
     <ClCompile Include="BatInputInterfaceAdapter.cpp">
       <Filter>소스 파일\Producer\BatInput</Filter>
     </ClCompile>
+    <ClCompile Include="MessageQueue.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IUserInputInterface.h">
@@ -100,6 +103,9 @@
     </ClInclude>
     <ClInclude Include="turnOnOffCommand.h">
       <Filter>소스 파일\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageQueue.h">
+      <Filter>소스 파일\MessageQueue</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

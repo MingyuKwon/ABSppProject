@@ -6,6 +6,8 @@
 #include "BallInputInterfaceAdapter.h"
 #include "BatInputInterfaceAdapter.h"
 
+#include "MessageQueue.h"
+
 #include "turnOnOffCommand.h"
 
 int main()
@@ -14,9 +16,10 @@ int main()
     std::unique_ptr<IBallInputInterface> ballInputModule = std::make_unique<BallInputInterfaceAdapter>();
     std::unique_ptr<IBatInputInterface> batInputModule = std::make_unique<BatInputInterfaceAdapter>();
 
-    AbstractCommand* ac = new turnOnOffCommand(true);
-
-    std::cout << ac->getPriority() << std::endl;
+    IMessageQueue* messageQueue = MessageQueue::getInstance();
+    messageQueue->pushCommand(new turnOnOffCommand(false));
+    messageQueue->getCommand();
+    std::cout << " " << std::endl;
 
     return 0;
 }
