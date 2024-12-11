@@ -13,7 +13,7 @@ public:
 
     virtual void turnOff() const override;
 
-    virtual void getBallStrike() const override;
+    virtual void getBallStrike(int PitchCount) const override;
 
     virtual void setBatterData(const string& batterName, const float& batterHeight) override;
 

@@ -12,7 +12,7 @@ public:
 
     virtual void turnOff_Origin() const;
 
-    virtual void getBallStrike_Origin() const;
+    virtual void getBallStrike_Origin(int PitchCount) const;
 
     virtual void setBatterData_Origin(const string& batterName, const float& batterHeight);
 };

@@ -31,6 +31,12 @@
     <Filter Include="소스 파일\Command">
       <UniqueIdentifier>{e4e1f092-9e46-4a77-9124-1d653e91c4ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Consumer">
+      <UniqueIdentifier>{c0ac987b-2992-41f4-8d16-048eb22439de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Command\User">
+      <UniqueIdentifier>{81dc56ed-e0ce-4ce1-a468-4beba550a012}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABSpp_System.cpp">
@@ -51,14 +57,26 @@
     <ClCompile Include="BatInputInterface.cpp">
       <Filter>소스 파일\Producer\BatInput</Filter>
     </ClCompile>
-    <ClCompile Include="turnOnOffCommand.cpp">
-      <Filter>소스 파일\Command</Filter>
-    </ClCompile>
     <ClCompile Include="BatInputInterfaceAdapter.cpp">
       <Filter>소스 파일\Producer\BatInput</Filter>
     </ClCompile>
     <ClCompile Include="MessageQueue.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\MessageQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="DataSaveSystem.cpp">
+      <Filter>소스 파일\Consumer</Filter>
+    </ClCompile>
+    <ClCompile Include="turnOnOffCommand.cpp">
+      <Filter>소스 파일\Command\User</Filter>
+    </ClCompile>
+    <ClCompile Include="GetBallStrikeCommand.cpp">
+      <Filter>소스 파일\Command\User</Filter>
+    </ClCompile>
+    <ClCompile Include="TotalCheck.cpp">
+      <Filter>소스 파일\Consumer</Filter>
+    </ClCompile>
+    <ClCompile Include="Schedular.cpp">
+      <Filter>소스 파일\Consumer</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,14 +116,26 @@
     <ClInclude Include="abstractCommand.h">
       <Filter>소스 파일\Command</Filter>
     </ClInclude>
-    <ClInclude Include="UserCommand.h">
-      <Filter>소스 파일\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="turnOnOffCommand.h">
-      <Filter>소스 파일\Command</Filter>
-    </ClInclude>
     <ClInclude Include="MessageQueue.h">
       <Filter>소스 파일\MessageQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="TotalCheck.h">
+      <Filter>소스 파일\Consumer</Filter>
+    </ClInclude>
+    <ClInclude Include="DataSaveSystem.h">
+      <Filter>소스 파일\Consumer</Filter>
+    </ClInclude>
+    <ClInclude Include="UserCommand.h">
+      <Filter>소스 파일\Command\User</Filter>
+    </ClInclude>
+    <ClInclude Include="turnOnOffCommand.h">
+      <Filter>소스 파일\Command\User</Filter>
+    </ClInclude>
+    <ClInclude Include="GetBallStrikeCommand.h">
+      <Filter>소스 파일\Command\User</Filter>
+    </ClInclude>
+    <ClInclude Include="Schedular.h">
+      <Filter>소스 파일\Consumer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

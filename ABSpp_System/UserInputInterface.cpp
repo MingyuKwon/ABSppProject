@@ -8,7 +8,7 @@ void UserInputInterface::turnOff_Origin() const
 {
 }
 
-void UserInputInterface::getBallStrike_Origin() const
+void UserInputInterface::getBallStrike_Origin(int PitchCount) const
 {
 }
 

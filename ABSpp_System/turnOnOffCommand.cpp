@@ -1,10 +1,9 @@
 #include "turnOnOffCommand.h"
+#include "MessageQueue.h"
 
-turnOnOffCommand::turnOnOffCommand(bool flag)
-{
-
-}
 
 void turnOnOffCommand::execute()
 {
+	IMessageQueue* messageQueue = MessageQueue::getInstance();
+	messageQueue->setCommandAvailable(flag);
 }

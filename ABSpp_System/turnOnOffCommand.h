@@ -4,13 +4,13 @@
 class turnOnOffCommand :public UserCommand
 {
 public:
-	turnOnOffCommand(bool flag);
+	turnOnOffCommand(bool flag) : flag(flag){};
 	~turnOnOffCommand() = default;
 
 	virtual void execute() override;
 
 private:
-
+	bool flag = false;
 };
 
 

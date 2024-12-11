@@ -10,9 +10,9 @@ void UserInputInterfaceAdapter::turnOff() const
 	turnOff_Origin();
 }
 
-void UserInputInterfaceAdapter::getBallStrike() const
+void UserInputInterfaceAdapter::getBallStrike(int PitchCount) const
 {
-	getBallStrike_Origin();
+	getBallStrike_Origin(PitchCount);
 }
 
 void UserInputInterfaceAdapter::setBatterData(const string& batterName, const float& batterHeight)

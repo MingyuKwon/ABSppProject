@@ -14,7 +14,7 @@ public:
 
     virtual void turnOff() const = 0;
 
-    virtual void getBallStrike() const = 0;
+    virtual void getBallStrike(int PitchCount) const = 0;
 
     virtual void setBatterData(const string& batterName, const float& batterHeight) = 0;
 };

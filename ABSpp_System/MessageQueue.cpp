@@ -11,7 +11,7 @@ void MessageQueue::pushCommand(AbstractCommand* command)
 		return;
 	}
 		
-	if (!bActive) 
+	if (!bActive && command->getPriority() == 0)
 	{
 		std::cout << "메시지 큐가 non Active여서 Command를 받을 수 없습니다" << std::endl;
 		return;
@@ -34,8 +34,6 @@ AbstractCommand* MessageQueue::getCommand()
 
 	AbstractCommand* popCommand = messageQueue.front();
 	messageQueue.pop();
-
-	std::cout << messageQueue.size() << std::endl;
 
 	return popCommand;
 }
