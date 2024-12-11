@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="소스 파일\Producer">
+      <UniqueIdentifier>{9bc8c237-6aba-4c2c-90f3-1ed996d27e6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Producer\UserInput">
+      <UniqueIdentifier>{59460a8c-97a2-44af-9315-e640947bc691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Producer\BallInput">
+      <UniqueIdentifier>{dbe6bc48-1c92-4428-886a-631f964b4e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Producer\BatInput">
+      <UniqueIdentifier>{47379afd-9b6d-4ed0-9222-9a9752d13011}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\MessageQueue">
+      <UniqueIdentifier>{bedfd4e6-fd6a-47b2-af55-7fb1b4045d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Command">
+      <UniqueIdentifier>{e4e1f092-9e46-4a77-9124-1d653e91c4ba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ABSpp_System.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInputInterfaceAdapter.cpp">
+      <Filter>소스 파일\Producer\UserInput</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInputInterface.cpp">
+      <Filter>소스 파일\Producer\UserInput</Filter>
+    </ClCompile>
+    <ClCompile Include="BallInputInterface.cpp">
+      <Filter>소스 파일\Producer\BallInput</Filter>
+    </ClCompile>
+    <ClCompile Include="BallInputInterfaceAdapter.cpp">
+      <Filter>소스 파일\Producer\BallInput</Filter>
+    </ClCompile>
+    <ClCompile Include="BatInputInterface.cpp">
+      <Filter>소스 파일\Producer\BatInput</Filter>
+    </ClCompile>
+    <ClCompile Include="turnOnOffCommand.cpp">
+      <Filter>소스 파일\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="BatInputInterfaceAdapter.cpp">
+      <Filter>소스 파일\Producer\BatInput</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IUserInputInterface.h">
+      <Filter>소스 파일\Producer\UserInput</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInputInterface.h">
+      <Filter>소스 파일\Producer\UserInput</Filter>
+    </ClInclude>
+    <ClInclude Include="UserInputInterfaceAdapter.h">
+      <Filter>소스 파일\Producer\UserInput</Filter>
+    </ClInclude>
+    <ClInclude Include="IBallInputInterface.h">
+      <Filter>소스 파일\Producer\BallInput</Filter>
+    </ClInclude>
+    <ClInclude Include="UserDefineType.h">
+      <Filter>소스 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BallInputInterface.h">
+      <Filter>소스 파일\Producer\BallInput</Filter>
+    </ClInclude>
+    <ClInclude Include="BallInputInterfaceAdapter.h">
+      <Filter>소스 파일\Producer\BallInput</Filter>
+    </ClInclude>
+    <ClInclude Include="IBatInputInterface.h">
+      <Filter>소스 파일\Producer\BatInput</Filter>
+    </ClInclude>
+    <ClInclude Include="BatInputInterface.h">
+      <Filter>소스 파일\Producer\BatInput</Filter>
+    </ClInclude>
+    <ClInclude Include="BatInputInterfaceAdapter.h">
+      <Filter>소스 파일\Producer\BatInput</Filter>
+    </ClInclude>
+    <ClInclude Include="IMessageQueue.h">
+      <Filter>소스 파일\MessageQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="abstractCommand.h">
+      <Filter>소스 파일\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="UserCommand.h">
+      <Filter>소스 파일\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="turnOnOffCommand.h">
+      <Filter>소스 파일\Command</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
