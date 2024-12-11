@@ -1,4 +1,5 @@
 #pragma once
+#include <utility>
 
 struct Vector3
 {
@@ -8,4 +9,11 @@ struct Vector3
 
 	Vector3() = default;
 	Vector3(float x, float y, float z) : x(x), y(y), z(z) {}
+};
+
+enum EResult
+{
+	ER_Failed,
+	ER_Strike,
+	ER_Ball,
 };
