@@ -7,13 +7,13 @@ void MessageQueue::pushCommand(AbstractCommand* command)
 {
 	if (command == nullptr)
 	{
-		std::cout << "Input command is Null" << std::endl;
+		std::cout << "add to Message queue Fail : Input command is Null" << std::endl;
 		return;
 	}
 		
 	if (!bActive && command->getPriority() == 0)
 	{
-		std::cout << "Message Queue is turn off and cannot get Command" << std::endl;
+		std::cout << "add to Message queue Fail : Message Queue is turn off and cannot get Command" << std::endl;
 		return;
 	}
 
@@ -21,7 +21,7 @@ void MessageQueue::pushCommand(AbstractCommand* command)
 
 	messageQueue.push(command);
 
-	std::cout << messageQueue.size() << std::endl;
+	std::cout << "add to Message queue : " << messageQueue.size() << std::endl;
 }
 
 AbstractCommand* MessageQueue::getCommand()

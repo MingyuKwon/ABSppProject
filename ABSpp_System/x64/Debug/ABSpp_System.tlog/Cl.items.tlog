@@ -2,9 +2,12 @@ D:\aBS\ABSppProject\ABSpp_System\ABSpp_System.cpp;D:\aBS\ABSppProject\ABSpp_Syst
 D:\aBS\ABSppProject\ABSpp_System\BallCalcAlgorithm.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BallCalcAlgorithm.obj
 D:\aBS\ABSppProject\ABSpp_System\BallInputInterface.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BallInputInterface.obj
 D:\aBS\ABSppProject\ABSpp_System\BallInputInterfaceAdapter.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BallInputInterfaceAdapter.obj
+D:\aBS\ABSppProject\ABSpp_System\BallTraceCalcCommand.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BallTraceCalcCommand.obj
 D:\aBS\ABSppProject\ABSpp_System\BatCalcAlgorithm.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BatCalcAlgorithm.obj
 D:\aBS\ABSppProject\ABSpp_System\BatInputInterface.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BatInputInterface.obj
 D:\aBS\ABSppProject\ABSpp_System\BatInputInterfaceAdapter.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BatInputInterfaceAdapter.obj
+D:\aBS\ABSppProject\ABSpp_System\BatterDataInputCommand.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BatterDataInputCommand.obj
+D:\aBS\ABSppProject\ABSpp_System\BatTraceCalcCommand.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\BatTraceCalcCommand.obj
 D:\aBS\ABSppProject\ABSpp_System\CalculationSystem.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\CalculationSystem.obj
 D:\aBS\ABSppProject\ABSpp_System\DataSaveSystem.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\DataSaveSystem.obj
 D:\aBS\ABSppProject\ABSpp_System\GetBallStrikeCommand.cpp;D:\aBS\ABSppProject\ABSpp_System\x64\Debug\GetBallStrikeCommand.obj

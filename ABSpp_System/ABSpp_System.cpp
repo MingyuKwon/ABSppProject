@@ -26,18 +26,21 @@
 int main()
 {
     DataSaveSystem* dataSaveModule = new DataSaveSystem();
-
     CalculationSystem* calculationModule = new CalculationSystem(dataSaveModule, new BallCalcAlgorithm(), new BatCalcAlgorithm());
+    TotalCheck* totalModule = new TotalCheck(dataSaveModule);
 
-    IUserInputInterface* userInputModule = new UserInputInterfaceAdapter();
+    IUserInputInterface* userInputModule = new UserInputInterfaceAdapter(calculationModule, totalModule);
     IBallInputInterface* ballInputModule = new BallInputInterfaceAdapter(calculationModule);
     IBatInputInterface* batInputModule = new BatInputInterfaceAdapter(calculationModule);
 
     IMessageQueue* messageQueue = MessageQueue::getInstance();
 
     
-    TotalCheck* totalModule = new TotalCheck(dataSaveModule);
+    
     Schedular* schedular = new Schedular();
+
+    userInputModule->setBatterData(std::string("Batter1"), 180);
+    userInputModule->getBallStrike(1);
 
 
     std::this_thread::sleep_for(std::chrono::milliseconds(10000));

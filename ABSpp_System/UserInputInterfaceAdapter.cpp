@@ -1,16 +1,16 @@
 #include "UserInputInterfaceAdapter.h"
 
-void UserInputInterfaceAdapter::turnOn() const
+void UserInputInterfaceAdapter::turnOn()
 {
 	turnOn_Origin();
 }
 
-void UserInputInterfaceAdapter::turnOff() const
+void UserInputInterfaceAdapter::turnOff()
 {
 	turnOff_Origin();
 }
 
-void UserInputInterfaceAdapter::getBallStrike(int PitchCount) const
+void UserInputInterfaceAdapter::getBallStrike(int PitchCount) 
 {
 	getBallStrike_Origin(PitchCount);
 }

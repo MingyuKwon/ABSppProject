@@ -32,7 +32,7 @@ private:
 
 protected:
     std::queue<AbstractCommand*> messageQueue;
-    bool bActive = false;
+    bool bActive = true;
 };
 
 

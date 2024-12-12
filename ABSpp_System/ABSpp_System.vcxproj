@@ -131,9 +131,12 @@
     <ClCompile Include="BallCalcAlgorithm.cpp" />
     <ClCompile Include="BallInputInterface.cpp" />
     <ClCompile Include="BallInputInterfaceAdapter.cpp" />
+    <ClCompile Include="BallTraceCalcCommand.cpp" />
     <ClCompile Include="BatCalcAlgorithm.cpp" />
     <ClCompile Include="BatInputInterface.cpp" />
     <ClCompile Include="BatInputInterfaceAdapter.cpp" />
+    <ClCompile Include="BatterDataInputCommand.cpp" />
+    <ClCompile Include="BatTraceCalcCommand.cpp" />
     <ClCompile Include="CalculationSystem.cpp" />
     <ClCompile Include="DataSaveSystem.cpp" />
     <ClCompile Include="GetBallStrikeCommand.cpp" />
@@ -149,9 +152,13 @@
     <ClInclude Include="BallCalcAlgorithm.h" />
     <ClInclude Include="BallInputInterface.h" />
     <ClInclude Include="BallInputInterfaceAdapter.h" />
+    <ClInclude Include="BallTraceCalcCommand.h" />
     <ClInclude Include="BatCalcAlgorithm.h" />
     <ClInclude Include="BatInputInterface.h" />
     <ClInclude Include="BatInputInterfaceAdapter.h" />
+    <ClInclude Include="BatterDataInputCommand.h" />
+    <ClInclude Include="BatTraceCalcCommand.h" />
+    <ClInclude Include="CalcCommand.h" />
     <ClInclude Include="CalculationSystem.h" />
     <ClInclude Include="DataSaveSystem.h" />
     <ClInclude Include="GetBallStrikeCommand.h" />

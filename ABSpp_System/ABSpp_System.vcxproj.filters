@@ -40,6 +40,9 @@
     <Filter Include="소스 파일\CalcStrategy">
       <UniqueIdentifier>{25789779-ba08-49f3-8b2d-13b142e4980a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Command\Calc">
+      <UniqueIdentifier>{7da1625f-93f2-4026-b43b-20352ae05a57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABSpp_System.cpp">
@@ -89,6 +92,15 @@
     </ClCompile>
     <ClCompile Include="CalculationSystem.cpp">
       <Filter>소스 파일\Consumer</Filter>
+    </ClCompile>
+    <ClCompile Include="BatterDataInputCommand.cpp">
+      <Filter>소스 파일\Command\Calc</Filter>
+    </ClCompile>
+    <ClCompile Include="BallTraceCalcCommand.cpp">
+      <Filter>소스 파일\Command\Calc</Filter>
+    </ClCompile>
+    <ClCompile Include="BatTraceCalcCommand.cpp">
+      <Filter>소스 파일\Command\Calc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +178,18 @@
     </ClInclude>
     <ClInclude Include="BatCalcAlgorithm.h">
       <Filter>소스 파일\CalcStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="CalcCommand.h">
+      <Filter>소스 파일\Command\Calc</Filter>
+    </ClInclude>
+    <ClInclude Include="BatterDataInputCommand.h">
+      <Filter>소스 파일\Command\Calc</Filter>
+    </ClInclude>
+    <ClInclude Include="BallTraceCalcCommand.h">
+      <Filter>소스 파일\Command\Calc</Filter>
+    </ClInclude>
+    <ClInclude Include="BatTraceCalcCommand.h">
+      <Filter>소스 파일\Command\Calc</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
