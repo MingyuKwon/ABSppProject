@@ -37,9 +37,6 @@ EResult BallCalcAlgorithm::calculate() const {
     bool inStrikeZone = (xAtYZero >= strikeZoneLeft && xAtYZero <= strikeZoneRight &&
         zAtYZero >= strikeZoneBottom && zAtYZero <= strikeZoneTop);
 
-    //std::cout << "BallCalcAlgorithm === Predicted X: " << xAtYZero << ", Z: " << zAtYZero << std::endl;
-    std::cout << (inStrikeZone ? "BallCalcAlgorithm === Inside Strike Zone" : "BallCalcAlgorithm === Outside Strike Zone") << std::endl;
-
     return inStrikeZone ? EResult::ER_Strike : EResult::ER_Ball;
 }
 

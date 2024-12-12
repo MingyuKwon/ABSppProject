@@ -1,2 +1,5 @@
-﻿  TotalCheck.cpp
+﻿  ABSpp_System.cpp
+D:\ABSpp_System\ABSpp_System\CalculationSystem.h(26,26): warning C4305: '초기화 중': 'double'에서 'float'(으)로 잘립니다.
+  (소스 파일 'ABSpp_System.cpp'을(를) 컴파일하는 중)
+  
   ABSpp_System.vcxproj -> D:\ABSpp_System\x64\Debug\ABSpp_System.exe

@@ -106,6 +106,8 @@ int main()
     
     Schedular* schedular = new Schedular();
 
+
+    // 이부분을 테스트 할 때 써주시면 됩니다 아니면 여기서 쓰레드를 재생 시킨다던가 
     userInputModule->setBatterData(std::string("Batter1"), 180);
 
     std::vector<Vector3> ballTestData;
@@ -118,12 +120,9 @@ int main()
     batInputModule->setBatTraceData(1, std::string("Batter1"), batStartData, batEndData);
 
     userInputModule->getBallStrike(1);
+    // 이부분을 테스트 할 때 써주시면 됩니다
 
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(5000));
-
-    
-    std::cout << " " << std::endl;
+    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 
     delete userInputModule;
     delete ballInputModule;

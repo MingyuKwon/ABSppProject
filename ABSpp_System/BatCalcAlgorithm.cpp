@@ -19,17 +19,11 @@ EResult BatCalcAlgorithm::calculate() const
         }
     }
 
-    if (bBatEndOutOfLine)
+    if (!bBatEndOutOfLine)
     {
-        std::cout << "Bat End Position is within foul lines: \n";
-    }
-    else
-    {
-        std::cout << "No Bat End Position is within the foul lines.\n";
         return EResult::ER_Ball;
     }
-
-
+    
     Vector3 initialStart = batStartPositions[0];
     Vector3 initialEnd = batEndPositions[0];
     Vector3 initialVector = initialEnd - initialStart;
@@ -59,11 +53,9 @@ EResult BatCalcAlgorithm::calculate() const
     }
 
     if (maxAngle >= 40.f) {
-        std::cout << "BatCalcAlgorithm === Bat rotated beyond the threshold angle.\n";
         return EResult::ER_Strike;
     }
     else {
-        std::cout << "BatCalcAlgorithm === Bat did not rotate beyond the threshold angle.\n";
         return EResult::ER_Ball;
     }
     
