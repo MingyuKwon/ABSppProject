@@ -7,13 +7,13 @@ void MessageQueue::pushCommand(AbstractCommand* command)
 {
 	if (command == nullptr)
 	{
-		std::cout << "메시지 큐에 들어온 Command가 null 입니다" << std::endl;
+		std::cout << "Input command is Null" << std::endl;
 		return;
 	}
 		
 	if (!bActive && command->getPriority() == 0)
 	{
-		std::cout << "메시지 큐가 non Active여서 Command를 받을 수 없습니다" << std::endl;
+		std::cout << "Message Queue is turn off and cannot get Command" << std::endl;
 		return;
 	}
 
