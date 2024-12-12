@@ -12,6 +12,13 @@ struct Vector3
 	Vector3(float x, float y, float z) : x(x), y(y), z(z) {}
 };
 
+enum EResult
+{
+	ER_Failed,
+	ER_Strike,
+	ER_Ball,
+};
+
 struct FinalResult
 {
 	int pitchCount = 0;
@@ -25,9 +32,3 @@ struct FinalResult
 		: pitchCount(pitchCount), batterName(batterName), TotalResult(TotalResult), BallTraceResult(BallTraceResult), BatTraceResult(BatTraceResult) {}
 };
 
-enum EResult
-{
-	ER_Failed,
-	ER_Strike,
-	ER_Ball,
-};

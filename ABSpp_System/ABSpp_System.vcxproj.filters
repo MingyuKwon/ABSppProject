@@ -102,6 +102,9 @@
     <ClCompile Include="BatTraceCalcCommand.cpp">
       <Filter>소스 파일\Command\Calc</Filter>
     </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>소스 파일\Consumer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IUserInputInterface.h">
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="BatTraceCalcCommand.h">
       <Filter>소스 파일\Command\Calc</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>소스 파일\Consumer</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

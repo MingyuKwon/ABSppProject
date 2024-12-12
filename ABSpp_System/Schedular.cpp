@@ -10,7 +10,7 @@ Schedular::Schedular()
         while (!stopThread)
         {
             addToQueue();
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
         }
 
         });
@@ -20,7 +20,7 @@ Schedular::Schedular()
         while (!stopThread)
         {
             executeCommand();
-            std::this_thread::sleep_for(std::chrono::milliseconds(500));
+            std::this_thread::sleep_for(std::chrono::milliseconds(100));
             
         }
 
@@ -47,8 +47,6 @@ void Schedular::executeCommand()
     if (PQ.empty()) return;
 
     std::lock_guard<std::mutex> lock(mtx);
-    std::cout << "executeCommand\n";
-
     AbstractCommand* cmd = PQ.top();
     PQ.pop();
 
@@ -64,7 +62,6 @@ void Schedular::addToQueue()
     if (cmd)
     {
         std::lock_guard<std::mutex> lock(mtx);
-        std::cout << "addToQueue\n";
 
         PQ.push(cmd);
     }

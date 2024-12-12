@@ -19,6 +19,7 @@
 #include "DataSaveSystem.h"
 #include "CalculationSystem.h"
 #include "Schedular.h"
+#include "Server.h"
 
 #include "turnOnOffCommand.h"
 #include "GetBallStrikeCommand.h"
@@ -27,7 +28,8 @@ int main()
 {
     DataSaveSystem* dataSaveModule = new DataSaveSystem();
     CalculationSystem* calculationModule = new CalculationSystem(dataSaveModule, new BallCalcAlgorithm(), new BatCalcAlgorithm());
-    TotalCheck* totalModule = new TotalCheck(dataSaveModule);
+    Server* serverModule = new Server();
+    TotalCheck* totalModule = new TotalCheck(dataSaveModule, serverModule);
 
     IUserInputInterface* userInputModule = new UserInputInterfaceAdapter(calculationModule, totalModule);
     IBallInputInterface* ballInputModule = new BallInputInterfaceAdapter(calculationModule);
@@ -54,8 +56,11 @@ int main()
 
     delete messageQueue;
 
+    delete calculationModule;
     delete dataSaveModule;
     delete totalModule;
+    delete serverModule;
+    delete schedular;
 
     return 0;
 }

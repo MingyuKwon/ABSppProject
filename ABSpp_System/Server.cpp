@@ -39,6 +39,6 @@ void Server::sendToServer(FinalResult finalResult)
 		break;
 	}
 
-	std::cout << "PitchCount : " << finalResult.pitchCount << "  " << finalResult.batterName << "  Total : " << TotalResult << "  Ball Trace : " << BallTraceResult << "  Bat Trace : " << BatTraceResult << std::endl;
+	std::cout << "============= PitchCount : " << finalResult.pitchCount << "  " << finalResult.batterName << "  Total : " << TotalResult << "  Ball Trace : " << BallTraceResult << "  Bat Trace : " << BatTraceResult << std::endl;
 
 }

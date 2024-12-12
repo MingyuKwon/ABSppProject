@@ -2,5 +2,9 @@
 
 void GetBallStrikeCommand::execute()
 {
-	std::cout << " GetBallStrikeCommand::execute " << std::endl;
+	if (totalCheck && PitchCount > 0)
+	{
+		std::cout << " GetBallStrikeCommand::execute " << std::endl;
+		totalCheck->getBallStrike(PitchCount);
+	}
 }
