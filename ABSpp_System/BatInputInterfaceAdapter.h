@@ -5,6 +5,7 @@
 
 class BatInputInterfaceAdapter : public BatInputInterface , public IBatInputInterface {
 public:
+    BatInputInterfaceAdapter(CalculationSystem* calculationSystem) : BatInputInterface(calculationSystem) {}
 
     virtual ~BatInputInterfaceAdapter() = default;
 

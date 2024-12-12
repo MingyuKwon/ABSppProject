@@ -11,8 +11,13 @@
 
 #include "MessageQueue.h"
 
+#include "BallCalcAlgorithm.h"
+#include "BatCalcAlgorithm.h"
+
+
 #include "TotalCheck.h"
 #include "DataSaveSystem.h"
+#include "CalculationSystem.h"
 #include "Schedular.h"
 
 #include "turnOnOffCommand.h"
@@ -20,13 +25,17 @@
 
 int main()
 {
+    DataSaveSystem* dataSaveModule = new DataSaveSystem();
+
+    CalculationSystem* calculationModule = new CalculationSystem(dataSaveModule, new BallCalcAlgorithm(), new BatCalcAlgorithm());
+
     IUserInputInterface* userInputModule = new UserInputInterfaceAdapter();
-    IBallInputInterface* ballInputModule = new BallInputInterfaceAdapter();
-    IBatInputInterface* batInputModule = new BatInputInterfaceAdapter();
+    IBallInputInterface* ballInputModule = new BallInputInterfaceAdapter(calculationModule);
+    IBatInputInterface* batInputModule = new BatInputInterfaceAdapter(calculationModule);
 
     IMessageQueue* messageQueue = MessageQueue::getInstance();
 
-    DataSaveSystem* dataSaveModule = new DataSaveSystem();
+    
     TotalCheck* totalModule = new TotalCheck(dataSaveModule);
     Schedular* schedular = new Schedular();
 

@@ -6,7 +6,7 @@
 class CalculationSystem
 {
 public:
-	CalculationSystem(DataSaveSystem* dataSaveSystem, IBatCalcAlgorithm* batCalcAlgorithm , IBallCalcAlgorithm* ballCalcAlgorithm) 
+	CalculationSystem(DataSaveSystem* dataSaveSystem , IBallCalcAlgorithm* ballCalcAlgorithm, IBatCalcAlgorithm* batCalcAlgorithm)
 		: dataSaveSystem(dataSaveSystem), batCalcAlgorithm(batCalcAlgorithm), ballCalcAlgorithm(ballCalcAlgorithm) { }
 
 	virtual ~CalculationSystem() {

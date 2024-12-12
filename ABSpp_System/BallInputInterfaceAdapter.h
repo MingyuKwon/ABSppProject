@@ -5,6 +5,7 @@
 
 class BallInputInterfaceAdapter : public BallInputInterface, public IBallInputInterface {
 public:
+    BallInputInterfaceAdapter(CalculationSystem* calculationSystem) : BallInputInterface(calculationSystem) {}
 
     virtual ~BallInputInterfaceAdapter() = default;
 

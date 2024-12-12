@@ -53,6 +53,7 @@ void Schedular::executeCommand()
     PQ.pop();
 
     cmd->execute();
+    delete cmd;
 }
 
 void Schedular::addToQueue()
