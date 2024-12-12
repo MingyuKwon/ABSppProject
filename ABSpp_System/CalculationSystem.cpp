@@ -32,4 +32,15 @@ void CalculationSystem::calcBatTrace(const int& pitchCount, const std::string& b
 void CalculationSystem::calcStrikeZone(const std::string& batterName, const float& batterHeight)
 {
 	if (dataSaveSystem == nullptr) return;
+
+	int index = 0;
+	for (; index < 8; index++)
+	{
+		if (HeightZone[index] <= batterHeight) break;
+	}
+
+	index = max(index, 7);
+
+	dataSaveSystem->save_batterData(batterName, strikeZoneWidth, strikeZoneHeight[index]);
+
 }

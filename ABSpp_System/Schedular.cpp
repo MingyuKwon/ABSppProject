@@ -10,7 +10,7 @@ Schedular::Schedular()
         while (!stopThread)
         {
             addToQueue();
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(10));
         }
 
         });
@@ -20,7 +20,7 @@ Schedular::Schedular()
         while (!stopThread)
         {
             executeCommand();
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            std::this_thread::sleep_for(std::chrono::milliseconds(10));
             
         }
 

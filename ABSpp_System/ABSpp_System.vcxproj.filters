@@ -198,4 +198,12 @@
       <Filter>소스 파일\Consumer</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="TestDataBall.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="TestDataBat.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 #pragma once
 #include <utility>
 #include <string>
+#include <cmath>
 
 struct Vector3
 {
@@ -10,6 +11,18 @@ struct Vector3
 
 	Vector3() = default;
 	Vector3(float x, float y, float z) : x(x), y(y), z(z) {}
+
+	Vector3 operator-(const Vector3& other) const {
+		return { x - other.x, y - other.y, z - other.z };
+	}
+
+	float magnitude() const {
+		return std::sqrt(x * x + y * y + z * z);
+	}
+
+	float dot(const Vector3& other) const {
+		return x * other.x + y * other.y + z * other.z;
+	}
 };
 
 enum EResult

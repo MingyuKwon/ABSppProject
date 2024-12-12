@@ -5,6 +5,7 @@ void TotalCheck::getBallStrike(int PitchCount)
 	if (server == nullptr) return;
 	if (dataSaveSystem == nullptr) return;
 
+	std::string finalName = "";
 	std::string batterName1 = "";
 	std::string batterName2 = "";
 
@@ -19,18 +20,48 @@ void TotalCheck::getBallStrike(int PitchCount)
 	batterName1 = ballTraceResultPair.first;
 	batterName2 = batTraceResultPair.first;
 
-	if (batterName1 == "")
-	{
-		batterName1 = batterName2;
-	}
-
 	ballTraceResult = ballTraceResultPair.second;
 	batTraceResult = batTraceResultPair.second;
 
-	if (batterName1 == "" || batterName1 != batterName2)
+	if (ballTraceResult == ER_Failed && batTraceResult == ER_Failed)
 	{
-		batterName1 = "Error Value";
+		finalName = "Error Value";
+	}
+	else if (ballTraceResult == ER_Failed)
+	{
+		finalName = batterName2;
+	}
+	else if (batTraceResult == ER_Failed)
+	{
+		finalName = batterName1;
+	}
+	else
+	{
+		if (batterName1 == batterName2)
+		{
+			finalName = batterName1;
+
+			if (batTraceResult == ER_Strike)
+			{
+				totalResult = ER_Strike;
+			}
+			else
+			{
+				if (ballTraceResult == ER_Strike)
+				{
+					totalResult = ER_Strike;
+				}
+				else
+				{
+					totalResult = ER_Ball;
+				}
+			}
+		}
+		else
+		{
+			finalName = "Error Value";
+		}
 	}
 
-	server->sendToServer(FinalResult(PitchCount, batterName1, totalResult, ballTraceResult, batTraceResult));
+	server->sendToServer(FinalResult(PitchCount, finalName, totalResult, ballTraceResult, batTraceResult));
 }

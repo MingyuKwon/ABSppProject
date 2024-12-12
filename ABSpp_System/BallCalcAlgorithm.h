@@ -11,6 +11,8 @@ public:
 	virtual EResult calculate() const override;
 	virtual void setValue(const std::vector<Vector3> ballPositions, const float& StrikeZonewidth, const float& StrikeZoneheight) override;
 
+	std::pair<float, float> predictXZAtYZero() const;
+
 protected:
 
 };

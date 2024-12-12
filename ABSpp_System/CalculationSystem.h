@@ -23,6 +23,9 @@ private:
 	IBatCalcAlgorithm* batCalcAlgorithm = nullptr;
 	IBallCalcAlgorithm* ballCalcAlgorithm = nullptr;
 
+	float strikeZoneWidth = 47.18;
+	float strikeZoneHeight[8] = { 56 , 55, 53, 52, 51, 50, 49, 47};
+	int HeightZone[8] = { 195 , 190, 185, 180, 175, 170, 165, 160 };
 };
 
 

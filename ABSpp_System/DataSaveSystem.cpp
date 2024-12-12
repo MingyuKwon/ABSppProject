@@ -1,4 +1,5 @@
 #include "DataSaveSystem.h"
+#include <iostream>
 
 void DataSaveSystem::save_ballTraceResult(const int& pitchCount, const string& batterName, const EResult& result)
 {
@@ -13,7 +14,8 @@ void DataSaveSystem::save_batTraceResult(const int& pitchCount, const string& ba
 	if (pitchCount < 1) return;
 	if (batterName.empty()) return;
 
-	ballTraceResultHash.insert({ pitchCount, { batterName , result } });
+
+	batTraceResultHash.insert({ pitchCount, { batterName , result } });
 }
 
 void DataSaveSystem::save_batterData(const string& batterName, const float& width, const float& height)

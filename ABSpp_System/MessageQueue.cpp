@@ -20,8 +20,6 @@ void MessageQueue::pushCommand(AbstractCommand* command)
 	std::lock_guard<std::mutex> lock(mtx);
 
 	messageQueue.push(command);
-
-	std::cout << "add to Message queue : " << messageQueue.size() << std::endl;
 }
 
 AbstractCommand* MessageQueue::getCommand()
