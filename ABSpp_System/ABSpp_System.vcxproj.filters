@@ -37,6 +37,9 @@
     <Filter Include="소스 파일\Command\User">
       <UniqueIdentifier>{81dc56ed-e0ce-4ce1-a468-4beba550a012}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\CalcStrategy">
+      <UniqueIdentifier>{25789779-ba08-49f3-8b2d-13b142e4980a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ABSpp_System.cpp">
@@ -76,6 +79,15 @@
       <Filter>소스 파일\Consumer</Filter>
     </ClCompile>
     <ClCompile Include="Schedular.cpp">
+      <Filter>소스 파일\Consumer</Filter>
+    </ClCompile>
+    <ClCompile Include="BallCalcAlgorithm.cpp">
+      <Filter>소스 파일\CalcStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="BatCalcAlgorithm.cpp">
+      <Filter>소스 파일\CalcStrategy</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculationSystem.cpp">
       <Filter>소스 파일\Consumer</Filter>
     </ClCompile>
   </ItemGroup>
@@ -136,6 +148,24 @@
     </ClInclude>
     <ClInclude Include="Schedular.h">
       <Filter>소스 파일\Consumer</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculationSystem.h">
+      <Filter>소스 파일\Consumer</Filter>
+    </ClInclude>
+    <ClInclude Include="ICalcAlgorithm.h">
+      <Filter>소스 파일\CalcStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="IBallCalcAlgorithm.h">
+      <Filter>소스 파일\CalcStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="BallCalcAlgorithm.h">
+      <Filter>소스 파일\CalcStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="IBatCalcAlgorithm.h">
+      <Filter>소스 파일\CalcStrategy</Filter>
+    </ClInclude>
+    <ClInclude Include="BatCalcAlgorithm.h">
+      <Filter>소스 파일\CalcStrategy</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

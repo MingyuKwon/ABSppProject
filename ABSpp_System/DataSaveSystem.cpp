@@ -3,6 +3,7 @@
 void DataSaveSystem::save_ballTraceResult(const int& pitchCount, const string& batterName, const EResult& result)
 {
 	if (pitchCount < 1) return;
+	if (batterName.empty()) return;
 
 	ballTraceResultHash.insert({ pitchCount, { batterName , result } });
 }
@@ -10,12 +11,15 @@ void DataSaveSystem::save_ballTraceResult(const int& pitchCount, const string& b
 void DataSaveSystem::save_batTraceResult(const int& pitchCount, const string& batterName, const EResult& result)
 {
 	if (pitchCount < 1) return;
+	if (batterName.empty()) return;
 
 	ballTraceResultHash.insert({ pitchCount, { batterName , result } });
 }
 
 void DataSaveSystem::save_batterData(const string& batterName, const float& width, const float& height)
 {
+	if (batterName.empty()) return;
+
 	batterDataHash.insert({ batterName , {width, height } });
 }
 

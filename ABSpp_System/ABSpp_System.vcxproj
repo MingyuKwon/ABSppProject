@@ -128,10 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ABSpp_System.cpp" />
+    <ClCompile Include="BallCalcAlgorithm.cpp" />
     <ClCompile Include="BallInputInterface.cpp" />
     <ClCompile Include="BallInputInterfaceAdapter.cpp" />
+    <ClCompile Include="BatCalcAlgorithm.cpp" />
     <ClCompile Include="BatInputInterface.cpp" />
     <ClCompile Include="BatInputInterfaceAdapter.cpp" />
+    <ClCompile Include="CalculationSystem.cpp" />
     <ClCompile Include="DataSaveSystem.cpp" />
     <ClCompile Include="GetBallStrikeCommand.cpp" />
     <ClCompile Include="MessageQueue.cpp" />
@@ -143,14 +146,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="abstractCommand.h" />
+    <ClInclude Include="BallCalcAlgorithm.h" />
     <ClInclude Include="BallInputInterface.h" />
     <ClInclude Include="BallInputInterfaceAdapter.h" />
+    <ClInclude Include="BatCalcAlgorithm.h" />
     <ClInclude Include="BatInputInterface.h" />
     <ClInclude Include="BatInputInterfaceAdapter.h" />
+    <ClInclude Include="CalculationSystem.h" />
     <ClInclude Include="DataSaveSystem.h" />
     <ClInclude Include="GetBallStrikeCommand.h" />
+    <ClInclude Include="IBallCalcAlgorithm.h" />
     <ClInclude Include="IBallInputInterface.h" />
+    <ClInclude Include="IBatCalcAlgorithm.h" />
     <ClInclude Include="IBatInputInterface.h" />
+    <ClInclude Include="ICalcAlgorithm.h" />
     <ClInclude Include="IMessageQueue.h" />
     <ClInclude Include="IUserInputInterface.h" />
     <ClInclude Include="MessageQueue.h" />
