@@ -4,7 +4,7 @@ void BatterDataInputCommand::execute()
 {
 	if (calculationSystem)
 	{
-		std::cout << " BatterDataInputCommand::execute " << std::endl;
+		std::cout << " ===== CalcCommand ===== BatterDataInputCommand::execute " << std::endl;
 
 		calculationSystem->calcStrikeZone(batterName, batterHeight);
 	}

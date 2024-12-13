@@ -19,6 +19,7 @@ void MessageQueue::pushCommand(AbstractCommand* command)
 
 	std::lock_guard<std::mutex> lock(mtx);
 
+	std::cout << "add to Message queue " << std::endl;
 	messageQueue.push(command);
 }
 
@@ -32,7 +33,7 @@ AbstractCommand* MessageQueue::getCommand()
 
 	AbstractCommand* popCommand = messageQueue.front();
 	messageQueue.pop();
-
+	std::cout << "pop from Message queue " << std::endl;
 	return popCommand;
 }
 

@@ -21,6 +21,8 @@ public:
     Schedular();
     ~Schedular();
 
+    void TurnOnOffScheduler(bool turnOnOff);
+
 private:
     std::priority_queue<AbstractCommand*, std::vector<AbstractCommand*>, CommandCompare> PQ;
     std::thread getCommandThread;

@@ -2,7 +2,6 @@
 #include <fstream>
 #include <sstream>
 
-
 #include <algorithm> 
 #include <memory>
 #include <chrono>
@@ -89,6 +88,38 @@ void getBatTestData(std::vector<Vector3>& batEnd, std::vector<Vector3>& batStart
 }
 
 
+// 이 부분 여러 데이터 반복적으로 가져오도록 고치시면 될 것 같습니다
+
+void TestBallTraceInputThread(IBallInputInterface* ballInputModule)
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(10)); // 먼저 배터 데이터가 들어간 후에 데이터를 넣어주기 위함
+    std::vector<Vector3> ballTestData;
+    getBallTestData(ballTestData);
+    ballInputModule->setBallTraceData(1, std::string("Batter1"), ballTestData);
+}
+
+void TestBatTraceInputThread(IBatInputInterface* batInputModule)
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(10)); // 먼저 배터 데이터가 들어간 후에 데이터를 넣어주기 위함
+    std::vector<Vector3> batEndData;
+    std::vector<Vector3> batStartData;
+    getBatTestData(batEndData, batStartData);
+    batInputModule->setBatTraceData(1, std::string("Batter1"), batStartData, batEndData);
+}
+
+void TestBatterDataInputThread(IUserInputInterface* userInputModule)
+{
+    userInputModule->setBatterData(std::string("Batter1"), 180);
+}
+
+void TestGetBSInputThread(IUserInputInterface* userInputModule)
+{
+    std::this_thread::sleep_for(std::chrono::milliseconds(20)); // 먼저 다른 데이터 들을 넣은 다음에 요청을 하기 위함
+    userInputModule->getBallStrike(1);
+}
+
+// 이 부분 여러 데이터 반복적으로 가져오도록 고치시면 될 것 같습니다
+
 
 int main()
 {
@@ -105,24 +136,25 @@ int main()
 
     
     Schedular* schedular = new Schedular();
+    schedular->TurnOnOffScheduler(true);
+
+    // 테스트 쓰레드
+    std::thread testBallInput(TestBallTraceInputThread, ballInputModule);
+    std::thread testBatInput(TestBatTraceInputThread, batInputModule);
+    std::thread testBatterDataInput(TestBatterDataInputThread, userInputModule);
+    std::thread testBSInput(TestGetBSInputThread, userInputModule);
+    // 테스트 쓰레드
+
+    /// 만약 쓰레드 작업이 오래 결려서, 그 전에 main이 끝날 것 같다면 아래 숫자를 늘려서 대기하는 시간을 늘려 주세요
+    std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+    schedular->TurnOnOffScheduler(false);
+
+    if (testBallInput.joinable()) testBallInput.join();
+    if (testBatInput.joinable()) testBatInput.join();
+    if (testBatterDataInput.joinable()) testBatterDataInput.join();
+    if (testBSInput.joinable()) testBSInput.join();
 
 
-    // 이부분을 테스트 할 때 써주시면 됩니다 아니면 여기서 쓰레드를 재생 시킨다던가 
-    userInputModule->setBatterData(std::string("Batter1"), 180);
-
-    std::vector<Vector3> ballTestData;
-    getBallTestData(ballTestData);
-    ballInputModule->setBallTraceData(1, std::string("Batter1"), ballTestData);
-
-    std::vector<Vector3> batEndData;
-    std::vector<Vector3> batStartData;
-    getBatTestData(batEndData, batStartData);
-    batInputModule->setBatTraceData(1, std::string("Batter1"), batStartData, batEndData);
-
-    userInputModule->getBallStrike(1);
-    // 이부분을 테스트 할 때 써주시면 됩니다
-
-    std::this_thread::sleep_for(std::chrono::milliseconds(3000));
 
     delete userInputModule;
     delete ballInputModule;

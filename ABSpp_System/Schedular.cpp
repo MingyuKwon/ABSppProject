@@ -4,27 +4,6 @@
 Schedular::Schedular()
 {
     messageQueue = MessageQueue::getInstance();
-
-    getCommandThread = std::thread([this]() {
-
-        while (!stopThread)
-        {
-            addToQueue();
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-        }
-
-        });
-
-    commandExecuteThread = std::thread([this]() {
-
-        while (!stopThread)
-        {
-            executeCommand();
-            std::this_thread::sleep_for(std::chrono::milliseconds(10));
-            
-        }
-
-        });
 }
 
 Schedular::~Schedular()
@@ -39,6 +18,47 @@ Schedular::~Schedular()
     if (commandExecuteThread.joinable())
     {
         commandExecuteThread.join();
+    }
+}
+
+void Schedular::TurnOnOffScheduler(bool turnOn)
+{
+    stopThread = !turnOn;
+
+    if (!stopThread)
+    {
+        getCommandThread = std::thread([this]() {
+
+            while (!stopThread)
+            {
+                addToQueue();
+                //std::this_thread::sleep_for(std::chrono::milliseconds(10));
+            }
+
+            });
+
+        commandExecuteThread = std::thread([this]() {
+
+            while (!stopThread)
+            {
+                executeCommand();
+                //std::this_thread::sleep_for(std::chrono::milliseconds(10));
+
+            }
+
+            });
+    }
+    else
+    {
+        if (getCommandThread.joinable())
+        {
+            getCommandThread.join();
+        }
+
+        if (commandExecuteThread.joinable())
+        {
+            commandExecuteThread.join();
+        }
     }
 }
 
