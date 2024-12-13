@@ -1,4 +1,5 @@
 #include "BallCalcAlgorithm.h"
+#include <iostream>
 
 std::pair<float, float> BallCalcAlgorithm::predictXZAtYZero() const {
     if (ballPositions.size() < 2) return { 0, 0 };
@@ -36,6 +37,12 @@ EResult BallCalcAlgorithm::calculate() const {
 
     bool inStrikeZone = (xAtYZero >= strikeZoneLeft && xAtYZero <= strikeZoneRight &&
         zAtYZero >= strikeZoneBottom && zAtYZero <= strikeZoneTop);
+
+    std::cout << "Strike Zone: Left = " << strikeZoneLeft << ", Right = " << strikeZoneRight
+        << ", Bottom = " << strikeZoneBottom << ", Top = " << strikeZoneTop << std::endl;
+
+    std::cout << "Ball Position at Y=0: X = " << xAtYZero << ", Z = " << zAtYZero << std::endl;
+
 
     return inStrikeZone ? EResult::ER_Strike : EResult::ER_Ball;
 }
