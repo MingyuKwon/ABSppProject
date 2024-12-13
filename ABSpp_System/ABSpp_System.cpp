@@ -28,33 +28,6 @@
 #include "GetBallStrikeCommand.h"
 
 
-void getBallTestData(std::vector<Vector3>& ballTestData)
-{
-    std::ifstream file("TestDataBall.txt"); 
-    if (!file.is_open())
-    {
-        std::cerr << "Failed to open TestDataBall.txt" << std::endl;
-        return;
-    }
-
-    std::string line;
-
-    while (std::getline(file, line))
-    {
-        std::istringstream iss(line);
-        char ignore;
-        float x, y, z;
-
-        if (iss >> ignore >> x >> ignore >> y >> ignore >> z >> ignore)
-        {
-            ballTestData.emplace_back(x, y, z);
-        }
-    }
-
-    file.close();
-
-}
-
 void getBatTestData(std::vector<Vector3>& batEnd, std::vector<Vector3>& batStart)
 {
     std::ifstream file("TestDataBat.txt");
@@ -91,13 +64,51 @@ void getBatTestData(std::vector<Vector3>& batEnd, std::vector<Vector3>& batStart
 
 // 이 부분 여러 데이터 반복적으로 가져오도록 고치시면 될 것 같습니다
 
-void TestBallTraceInputThread(IBallInputInterface* ballInputModule)
-{
-    std::this_thread::sleep_for(std::chrono::milliseconds(10)); // 먼저 배터 데이터가 들어간 후에 데이터를 넣어주기 위함
-    std::vector<Vector3> ballTestData;
-    getBallTestData(ballTestData);
-    ballInputModule->setBallTraceData(1, std::string("Batter1"), ballTestData);
+void TestBallTraceInputThread(IBallInputInterface* ballInputModule) {
+    std::ifstream file("TestDataBall.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open TestDataBall.txt" << std::endl;
+        return;
+    }
+
+    std::string line;
+
+    while (true) {
+        int pitchCount = 0;
+        std::string batterName;
+        std::vector<Vector3> ballTestData;
+
+        if (!std::getline(file, line)) break;
+        std::istringstream iss(line);
+        if (!(iss >> pitchCount)) {
+            std::cerr << "Failed to parse pitch count." << std::endl;
+            return;
+        }
+
+        if (!std::getline(file, line)) break;
+        batterName = line;
+
+        while (std::getline(file, line) && !line.empty()) {
+            std::istringstream iss(line);
+            char ignore;
+            float x, y, z;
+
+            if (iss >> ignore >> x >> ignore >> y >> ignore >> z >> ignore) {
+                ballTestData.emplace_back(x, y, z);
+            }
+            else {
+                std::cerr << "Failed to parse ball trace data." << std::endl;
+            }
+        }
+
+        ballInputModule->setBallTraceData(pitchCount, batterName, ballTestData);
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+    }
+
+    file.close();
 }
+
 
 void TestBatTraceInputThread(IBatInputInterface* batInputModule)
 {
