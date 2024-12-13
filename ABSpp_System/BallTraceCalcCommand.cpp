@@ -4,7 +4,7 @@ void BallTraceCalcCommand::execute()
 {
 	if (calculationSystem)
 	{
-		std::cout << " ===== CalcCommand ===== BallTraceCalcCommand::execute " << std::endl;
+		std::cout << " ===== CalcCommand ===== BallTraceCalcCommand::execute \n";
 
 		calculationSystem->calcBallTrace(pitchCount, batterName, ballPositions);
 	}

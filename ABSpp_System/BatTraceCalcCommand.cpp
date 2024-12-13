@@ -4,7 +4,7 @@ void BatTraceCalcCommand::execute()
 {
 	if (calculationSystem)
 	{
-		std::cout << " ===== CalcCommand ===== BatTraceCalcCommand::execute " << std::endl;
+		std::cout << " ===== CalcCommand ===== BatTraceCalcCommand::execute \n";
 
 		calculationSystem->calcBatTrace(pitchCount, batterName, batStartPositions, batEndPositions);
 	}
