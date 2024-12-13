@@ -24,10 +24,10 @@ EResult BallCalcAlgorithm::calculate() const {
     bool bCanCalculate = ballPositions.size() > 0 && StrikeZonewidth > 0 && StrikeZoneheight > 0;
     if (!bCanCalculate) return EResult::ER_Failed;
 
-    float strikeZoneLeft = -StrikeZonewidth / 2;
-    float strikeZoneRight = StrikeZonewidth / 2;
-    float strikeZoneBottom = 45;
-    float strikeZoneTop = StrikeZoneheight + 45;
+    float strikeZoneLeft = -StrikeZonewidth / 2 - 1;
+    float strikeZoneRight = StrikeZonewidth / 2 + 1;
+    float strikeZoneBottom = 45 - 1;
+    float strikeZoneTop = StrikeZoneheight + 45 + 1;
 
 
     auto result = predictXZAtYZero();
