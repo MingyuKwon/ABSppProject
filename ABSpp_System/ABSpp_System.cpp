@@ -28,32 +28,39 @@
 #include "GetBallStrikeCommand.h"
 
 
-void getBatTestData(std::vector<Vector3>& batEnd, std::vector<Vector3>& batStart)
-{
+void getBatTestData(std::vector<Vector3>& batEnd, std::vector<Vector3>& batStart, int& id, std::string& batterName) {
     std::ifstream file("TestDataBat.txt");
-    if (!file.is_open())
-    {
+    if (!file.is_open()) {
         std::cerr << "Failed to open TestDataBat.txt" << std::endl;
         return;
     }
 
     std::string line;
 
-    while (std::getline(file, line))
-    {
+    if (std::getline(file, line)) {
+        std::istringstream iss(line);
+        if (!(iss >> id)) {
+            std::cerr << "Failed to parse ID." << std::endl;
+            return;
+        }
+    }
+
+    if (std::getline(file, line)) {
+        batterName = line;
+    }
+
+    while (std::getline(file, line)) {
         std::istringstream iss(line);
         std::string dummy;
         char ignore;
         float x1, y1, z1, x2, y2, z2;
 
         if (iss >> dummy >> ignore >> x1 >> ignore >> y1 >> ignore >> z1 >> ignore >> ignore
-            >> ignore >> x2 >> ignore >> y2 >> ignore >> z2 >> ignore)
-        {
+            >> ignore >> x2 >> ignore >> y2 >> ignore >> z2 >> ignore) {
             batEnd.emplace_back(x1, y1, z1);
             batStart.emplace_back(x2, y2, z2);
         }
-        else
-        {
+        else {
             std::cerr << "Failed to parse line: " << line << std::endl;
         }
     }
@@ -61,8 +68,6 @@ void getBatTestData(std::vector<Vector3>& batEnd, std::vector<Vector3>& batStart
     file.close();
 }
 
-
-// 이 부분 여러 데이터 반복적으로 가져오도록 고치시면 될 것 같습니다
 
 void TestBallTraceInputThread(IBallInputInterface* ballInputModule) {
     std::ifstream file("TestDataBall.txt");
@@ -110,14 +115,61 @@ void TestBallTraceInputThread(IBallInputInterface* ballInputModule) {
 }
 
 
-void TestBatTraceInputThread(IBatInputInterface* batInputModule)
-{
-    std::this_thread::sleep_for(std::chrono::milliseconds(10)); // 먼저 배터 데이터가 들어간 후에 데이터를 넣어주기 위함
-    std::vector<Vector3> batEndData;
-    std::vector<Vector3> batStartData;
-    getBatTestData(batEndData, batStartData);
-    batInputModule->setBatTraceData(1, std::string("Batter1"), batStartData, batEndData);
+void TestBatTraceInputThread(IBatInputInterface* batInputModule) {
+    std::ifstream file("TestDataBat.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open TestDataBat.txt" << std::endl;
+        return;
+    }
+
+    std::string line;
+
+    while (true) {
+        int pitchCount = 0;
+        std::string batterName;
+        std::vector<Vector3> batEndData;
+        std::vector<Vector3> batStartData;
+
+        // Read pitch count
+        if (!std::getline(file, line)) break;
+        std::istringstream iss(line);
+        if (!(iss >> pitchCount)) {
+            std::cerr << "Failed to parse pitch count." << std::endl;
+            return;
+        }
+
+        // Read batter name
+        if (!std::getline(file, line)) break;
+        batterName = line;
+
+        // Read bat trace data
+        while (std::getline(file, line) && !line.empty()) {
+            std::istringstream iss(line);
+            std::string dummy;
+            char ignore;
+            float x1, y1, z1, x2, y2, z2;
+
+            if (iss >> dummy >> ignore >> x1 >> ignore >> y1 >> ignore >> z1 >> ignore >> ignore
+                >> ignore >> x2 >> ignore >> y2 >> ignore >> z2 >> ignore) {
+                batEndData.emplace_back(x1, y1, z1);
+                batStartData.emplace_back(x2, y2, z2);
+            }
+            else {
+                std::cerr << "Failed to parse bat trace data." << std::endl;
+            }
+        }
+
+        // Process the current batch
+        batInputModule->setBatTraceData(pitchCount, batterName, batStartData, batEndData);
+
+        // Sleep before processing the next batch
+        std::this_thread::sleep_for(std::chrono::milliseconds(20));
+    }
+
+    file.close();
+    std::cout << "Finished processing TestDataBat.txt." << std::endl;
 }
+
 
 void TestBatterDataInputThread(IUserInputInterface* userInputModule)
 {
@@ -150,8 +202,12 @@ void TestBatterDataInputThread(IUserInputInterface* userInputModule)
 
 void TestGetBSInputThread(IUserInputInterface* userInputModule)
 {
-    std::this_thread::sleep_for(std::chrono::milliseconds(20)); // 먼저 다른 데이터 들을 넣은 다음에 요청을 하기 위함
-    userInputModule->getBallStrike(1);
+    for (int i = 1; i < 5; i++)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(30));
+        userInputModule->getBallStrike(i);
+    }
+    
 }
 
 // 이 부분 여러 데이터 반복적으로 가져오도록 고치시면 될 것 같습니다
