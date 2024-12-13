@@ -1,0 +1,11 @@
+Batter1 181
+Batter2 178
+Batter3 167
+Batter4 185
+Batter5 170
+Batter6 184
+Batter7 172
+Batter8 180
+Batter9 168
+Batter10 169
+Batter11 173

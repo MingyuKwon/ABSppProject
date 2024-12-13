@@ -27,6 +27,7 @@
 #include "turnOnOffCommand.h"
 #include "GetBallStrikeCommand.h"
 
+
 void getBallTestData(std::vector<Vector3>& ballTestData)
 {
     std::ifstream file("TestDataBall.txt"); 
@@ -109,7 +110,31 @@ void TestBatTraceInputThread(IBatInputInterface* batInputModule)
 
 void TestBatterDataInputThread(IUserInputInterface* userInputModule)
 {
-    userInputModule->setBatterData(std::string("Batter1"), 180);
+    std::ifstream file("TestDataInfo.txt");
+    if (!file.is_open()) {
+        std::cerr << "Failed to open file: " << "TestDataInfo.txt" << std::endl;
+        return;
+    }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+        std::string name;
+        float value;
+
+        if (iss >> name >> value) {
+            userInputModule->setBatterData(name, value);
+        }
+        else {
+            std::cerr << "Failed to parse line: " << line << std::endl;
+        }
+
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    }
+
+    file.close();
+
+    
 }
 
 void TestGetBSInputThread(IUserInputInterface* userInputModule)
