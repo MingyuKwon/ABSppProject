@@ -1,4 +1,5 @@
 #include "CalculationSystem.h"
+#include <iostream>
 
 void CalculationSystem::calcBallTrace(const int& pitchCount, const std::string& batterName, const std::vector<Vector3> ballPositions)
 {

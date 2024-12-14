@@ -38,10 +38,10 @@ EResult BallCalcAlgorithm::calculate() const {
     bool inStrikeZone = (xAtYZero >= strikeZoneLeft && xAtYZero <= strikeZoneRight &&
         zAtYZero >= strikeZoneBottom && zAtYZero <= strikeZoneTop);
 
-    std::cout << "Strike Zone: Left = " << strikeZoneLeft << ", Right = " << strikeZoneRight
+    std::cout << "############## Strike Zone: Left = " << strikeZoneLeft << ", Right = " << strikeZoneRight
         << ", Bottom = " << strikeZoneBottom << ", Top = " << strikeZoneTop << std::endl;
 
-    std::cout << "Ball Position at Y=0: X = " << xAtYZero << ", Z = " << zAtYZero << std::endl;
+    std::cout << "############## Ball Position at Y=0: X = " << xAtYZero << ", Z = " << zAtYZero << std::endl;
 
 
     return inStrikeZone ? EResult::ER_Strike : EResult::ER_Ball;

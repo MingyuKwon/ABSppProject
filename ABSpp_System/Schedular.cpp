@@ -32,7 +32,6 @@ void Schedular::TurnOnOffScheduler(bool turnOn)
             while (!stopThread)
             {
                 addToQueue();
-                //std::this_thread::sleep_for(std::chrono::milliseconds(10));
             }
 
             });
@@ -42,8 +41,6 @@ void Schedular::TurnOnOffScheduler(bool turnOn)
             while (!stopThread)
             {
                 executeCommand();
-                //std::this_thread::sleep_for(std::chrono::milliseconds(10));
-
             }
 
             });

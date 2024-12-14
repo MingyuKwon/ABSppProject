@@ -52,6 +52,10 @@ EResult BatCalcAlgorithm::calculate() const
         maxAngle = std::max(maxAngle, angle);
     }
 
+    std::cout << "&&&&&&& Max Angle: " << maxAngle << " degrees\n";
+    std::cout << (maxAngle >= 40.f ? "&&&&&&& Max Angle exceeds 40 degrees.\n" : "Max Angle is below 40 degrees.\n");
+
+
     if (maxAngle >= 40.f) {
         return EResult::ER_Strike;
     }

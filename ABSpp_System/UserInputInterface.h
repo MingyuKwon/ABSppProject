@@ -12,7 +12,8 @@ using namespace std;
 
 class UserInputInterface {
 public:
-    UserInputInterface(CalculationSystem* calculationSystem, TotalCheck* totalCheck) : calculationSystem(calculationSystem), totalCheck(totalCheck){}
+    UserInputInterface(CalculationSystem* calculationSystem, TotalCheck* totalCheck) 
+        : calculationSystem(calculationSystem), totalCheck(totalCheck){}
 
     virtual ~UserInputInterface() = default;
 

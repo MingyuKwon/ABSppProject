@@ -32,4 +32,6 @@ C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.3412
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(247,54): warning C4244:         ]
   (소스 파일 'BallCalcAlgorithm.cpp'을(를) 컴파일하는 중)
   
+  BatCalcAlgorithm.cpp
+  코드를 생성하고 있습니다...
   ABSpp_System.vcxproj -> D:\ABSpp_System\x64\Debug\ABSpp_System.exe

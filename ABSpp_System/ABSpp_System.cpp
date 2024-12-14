@@ -27,48 +27,6 @@
 #include "turnOnOffCommand.h"
 #include "GetBallStrikeCommand.h"
 
-
-void getBatTestData(std::vector<Vector3>& batEnd, std::vector<Vector3>& batStart, int& id, std::string& batterName) {
-    std::ifstream file("TestDataBat.txt");
-    if (!file.is_open()) {
-        std::cerr << "Failed to open TestDataBat.txt" << std::endl;
-        return;
-    }
-
-    std::string line;
-
-    if (std::getline(file, line)) {
-        std::istringstream iss(line);
-        if (!(iss >> id)) {
-            std::cerr << "Failed to parse ID." << std::endl;
-            return;
-        }
-    }
-
-    if (std::getline(file, line)) {
-        batterName = line;
-    }
-
-    while (std::getline(file, line)) {
-        std::istringstream iss(line);
-        std::string dummy;
-        char ignore;
-        float x1, y1, z1, x2, y2, z2;
-
-        if (iss >> dummy >> ignore >> x1 >> ignore >> y1 >> ignore >> z1 >> ignore >> ignore
-            >> ignore >> x2 >> ignore >> y2 >> ignore >> z2 >> ignore) {
-            batEnd.emplace_back(x1, y1, z1);
-            batStart.emplace_back(x2, y2, z2);
-        }
-        else {
-            std::cerr << "Failed to parse line: " << line << std::endl;
-        }
-    }
-
-    file.close();
-}
-
-
 void TestBallTraceInputThread(IBallInputInterface* ballInputModule) {
     std::ifstream file("TestDataBall.txt");
     if (!file.is_open()) {

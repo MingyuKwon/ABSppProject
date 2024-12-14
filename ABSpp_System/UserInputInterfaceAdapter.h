@@ -8,7 +8,8 @@ using namespace std;
 class UserInputInterfaceAdapter : public UserInputInterface, public IUserInputInterface {
 public:
 
-    UserInputInterfaceAdapter(CalculationSystem* calculationSystem, TotalCheck* totalCheck) : UserInputInterface(calculationSystem, totalCheck) {}
+    UserInputInterfaceAdapter(CalculationSystem* calculationSystem, TotalCheck* totalCheck) 
+        : UserInputInterface(calculationSystem, totalCheck) {}
 
     virtual ~UserInputInterfaceAdapter() = default;
 
